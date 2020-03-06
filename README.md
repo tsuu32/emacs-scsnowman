@@ -12,11 +12,15 @@ You can insert scsnowman to buffer simply by `scsnowman` function.
 (scsnowman :mouth-shape 'frown :snow "skyblue" :sweat t)
 ```
 
-In scsnowman.el scsnowman is a SVG derived from svg.el, so you can use some functions from svg.el such as `svg-print` and `svg-image`.
+In scsnowman.el scsnowman is a SVG derived from svg.el.
+
+`scsnowman-create` creates a scsnowman SVG, so you can use some functions from svg.el such as `svg-print` and `svg-image`.
 
 Get image descriptor:
 ```elisp
 (svg-image (scsnowman-create))
+;; you can insert the image with got image descriptor
+;; (insert-image (svg-image (scsnowman-create)))
 ```
 
 See SVG source:
@@ -33,13 +37,13 @@ Use `scsnowman-define-shape-function` macro to define new shape.
   (let ((svg (svg-create 100 100)))
     ;; define scsnowman SVG
     ;; you can use `body', `eyes', `nose'... arguments in this form
-    ;; useful scsnowman attributes such as `body-path' also can be used
+    ;; useful scsnowman attributes such as `body-path', `eye-path'... also can be used
 
     ;; make sure that finally return created svg
     svg))
 ```
 
-## Some example
+## Examples
 ### scsnowman-replace-snowman-mode
 Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the buffer with scsnowman images.
 
@@ -84,14 +88,13 @@ Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the buffer with s
 ![replaced.png](img/replaced.png)
 
 ### Bouncing scsnowman
-Dependency: [bouncing-dvd-logo.el](https://github.com/tsuu32/emacs-bouncing-dvd-logo)
-Make sure that Emacs loads bouncing-dvd-logo.el.
+Please download [bouncing-dvd-logo.el](https://github.com/tsuu32/emacs-bouncing-dvd-logo) and make sure that Emacs loads bouncing-dvd-logo.el.
 
 You can enjoy editing with boucing scsnowman :)
 
 ```elisp
-(setq bouncing-dvd-logo-insert-form '(scsnowman :body t
-                                                :arms t
+(setq bouncing-dvd-logo-insert-form '(scsnowman :hat "green"
+                                                :arms "brown"
                                                 :muffler "blue"
                                                 :buttons t
                                                 :note t))
