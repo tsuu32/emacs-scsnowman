@@ -201,12 +201,18 @@ atributes `let' binded."
 
     ;; broom
     (when broom
-      (apply #'svg-line svg  3 94 12 50 :stroke-width 3.2 broom-path)
-      (apply #'svg-line svg 11 50  6 25 :stroke-width 1.2 broom-path)
-      (apply #'svg-line svg 12 50 12 28 :stroke-width 1.2 broom-path)
-      (apply #'svg-line svg 12 50 18 24 :stroke-width 1.2 broom-path)
-      (apply #'svg-line svg 12 50 21 30 :stroke-width 1.2 broom-path)
-      (apply #'svg-line svg 13 50 27 26 :stroke-width 1.2 broom-path))
+      (apply #'svg-line svg  3 94 12 50
+             `(,@broom-path :stroke-width 3.2 :stroke-linecap "butt"))
+      (apply #'svg-line svg 11 50  6 25
+             `(,@broom-path :stroke-width 1.2 :stroke-linecap "butt"))
+      (apply #'svg-line svg 12 50 12 28
+             `(,@broom-path :stroke-width 1.2 :stroke-linecap "butt"))
+      (apply #'svg-line svg 12 50 18 24
+             `(,@broom-path :stroke-width 1.2 :stroke-linecap "butt"))
+      (apply #'svg-line svg 12 50 21 30
+             `(,@broom-path :stroke-width 1.2 :stroke-linecap "butt"))
+      (apply #'svg-line svg 13 50 27 26
+             `(,@broom-path :stroke-width 1.2 :stroke-linecap "butt")))
 
     ;; arms
     (when arms
