@@ -45,7 +45,7 @@ Use `scsnowman-define-shape-function` macro to define new shape.
 
 ## Examples
 ### scsnowman-replace-snowman-mode
-Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the buffer with scsnowman images.
+Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the viewing buffer with scsnowman images.
 
 ```elisp
 (defvar scsnowman-replace-snowman-alist
@@ -75,6 +75,8 @@ Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the buffer with s
                                   '(display nil)))))))
 ```
 
+#### Example
+Buffer contents:
 ```
 あ、雪だるまだ☃
 
@@ -84,6 +86,7 @@ Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the buffer with s
 
 ！⛇大雪だ！
 ```
+Screenshot after `M-x scsnowman-replace-snowman-mode`:
 
 ![replaced.png](img/replaced.png)
 
