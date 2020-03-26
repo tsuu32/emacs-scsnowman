@@ -41,7 +41,7 @@
 (defvar scsnowman-defaultcolor     "black")
 (defvar scsnowman-defaultanticolor "white")
 
-;; Emacs 27 support `svg-path' but I use `scsnowman-svg-path' for portability.
+;; Emacs 27 support `svg-path' but I use `scsnowman-svg-path' for ease of porting.
 (defun scsnowman-svg-path (svg d &rest args)
   "Create a path D in SVG."
   (svg--append
