@@ -19,8 +19,10 @@ The function `scsnowman-create` creates a scsnowman SVG object, which can be use
 To get image descriptor:
 ```elisp
 (svg-image (scsnowman-create))
+;; => (image :type svg :data "<svg width=\"100\" height=\"100\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"transparent\"> <path d=\"M50 28 C 64 28, 76 35, 76 45 C 76 49, 72 53, 67 56 C 79 59, 84 68, 84 75 C 84 87, 75 92, 68 92 L32 92 C 25 92, 16 87, 16 75 C 16 68, 21 59, 33 56 C 28 53, 24 49, 24 45 C 24 35, 36 28, 50 28 Z\" fill=\"transparent\" stroke=\"black\"></path> <ellipse cx=\"40\" cy=\"44\" rx=\"2\" ry=\"3\" fill=\"black\"></ellipse> <ellipse cx=\"60\" cy=\"44\" rx=\"2\" ry=\"3\" fill=\"black\"></ellipse> <path d=\"M40 52 C 45 55, 55 55, 60 52\" stroke=\"black\"></path></svg>" :scale 1)
+
 ;; you can insert the image with got image descriptor
-;; (insert-image (svg-image (scsnowman-create)))
+(insert-image (svg-image (scsnowman-create)))
 ```
 
 To print SVG source:
@@ -40,7 +42,7 @@ This macro defines a new function named `scsnowman--shape-<name>` which is used 
     ;; you can use `body', `eyes', `nose'... arguments in this form
     ;; useful scsnowman attributes such as `body-path', `eye-path'... also can be used
 
-    ;; make sure that finally return created svg
+    ;; make sure to return created SVG
     svg))
 
 ;; use myfavorite shape
