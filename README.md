@@ -1,38 +1,39 @@
 # scsnowman.el
 scsnowman.el is a Emacs Lisp port of LaTeX [scsnowman.sty](https://github.com/aminophen/scsnowman).
 
-You can insert customizable scsnowman to buffer in graphical Emacs.
+You can insert many variants of snowman to buffer in graphical Emacs.
 
 ## Screenshot
 ![scsnowmans.png](img/scsnowmans.png)
 
 ## Usage
-You can insert scsnowman to buffer simply by `scsnowman` function.
+You can insert scsnowman to buffer simply by calling `scsnowman` function.
 ```elisp
 (scsnowman :mouth-shape 'frown :snow "skyblue" :sweat t)
 ```
 
-In scsnowman.el scsnowman is a SVG derived from svg.el.
+In scsnowman.el scsnowman is a SVG object derived from svg.el (which is added in Emacs 26.1).
 
-`scsnowman-create` creates a scsnowman SVG, so you can use some functions from svg.el such as `svg-print` and `svg-image`.
+The function `scsnowman-create` creates a scsnowman SVG object, which can be used by several functions from svg.el such as `svg-image` and `svg-print`.
 
-Get image descriptor:
+To get image descriptor:
 ```elisp
 (svg-image (scsnowman-create))
 ;; you can insert the image with got image descriptor
 ;; (insert-image (svg-image (scsnowman-create)))
 ```
 
-See SVG source:
+To print SVG source:
 ```elisp
 (svg-print (scsnowman-create :body t :arms t :hat t :muffler "blue"))
 ```
 
 ## Extensibility
-As well as original scsnowman.sty You can define new scsnowman shape.
-Use `scsnowman-define-shape-function` macro to define new shape.
-
+As well as original scsnowman.sty you can define and use custom scsnowman shapes.
+Use `scsnowman-define-shape-function` macro to define custom shapes.
+This macro defines a new function named `scsnowman--shape-<name>` which is used by `scsnowman-create`.
 ```elisp
+;; define a shape named myfavorite
 (scsnowman-define-shape-function "myfavorite"
   (let ((svg (svg-create 100 100)))
     ;; define scsnowman SVG
@@ -41,9 +42,15 @@ Use `scsnowman-define-shape-function` macro to define new shape.
 
     ;; make sure that finally return created svg
     svg))
-```
 
-## Examples
+;; use myfavorite shape
+(scsnowman :shape "myfavorite")
+```
+By default scsnowman.el has "narmal" shape ported from [scsnowman-normal.def](https://github.com/aminophen/scsnowman/blob/master/scsnowman-normal.def).
+Please refer it.
+
+
+## scsnowman.el examples
 ### scsnowman-replace-snowman-mode
 Replace ☃(U+2603), ⛄(U+26c4) and ⛇(U+26c7) characters in the viewing buffer with scsnowman images.
 
@@ -91,9 +98,9 @@ Screenshot after `M-x scsnowman-replace-snowman-mode`:
 ![replaced.png](img/replaced.png)
 
 ### Bouncing scsnowman
-Please download [bouncing-dvd-logo.el](https://github.com/tsuu32/emacs-bouncing-dvd-logo) and make sure that Emacs loads bouncing-dvd-logo.el.
+Please install [bouncing-dvd-logo.el](https://github.com/tsuu32/emacs-bouncing-dvd-logo) and make sure that Emacs loads bouncing-dvd-logo.el.
 
-You can enjoy editing with boucing scsnowman :)
+You can enjoy editing with boucing scsnowman ⛄︎
 
 ```elisp
 (setq bouncing-dvd-logo-insert-form '(scsnowman :hat "green"
