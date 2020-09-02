@@ -36,7 +36,7 @@ Use `scsnowman-define-shape-function` macro to define custom shapes.
 This macro defines a new function named `scsnowman--shape-<name>` which is used by `scsnowman-create`.
 ```elisp
 ;; define a shape named myfavorite
-(scsnowman-define-shape-function "myfavorite"
+(scsnowman-define-shape-function myfavorite
   (let ((svg (svg-create 100 100)))
     ;; define scsnowman SVG
     ;; you can use `body', `eyes', `nose'... arguments in this form
@@ -46,7 +46,7 @@ This macro defines a new function named `scsnowman--shape-<name>` which is used 
     svg))
 
 ;; use myfavorite shape
-(scsnowman :shape "myfavorite")
+(scsnowman :shape 'myfavorite)
 ```
 By default scsnowman.el has "narmal" shape ported from [scsnowman-normal.def](https://github.com/aminophen/scsnowman/blob/master/scsnowman-normal.def).
 Please refer it.
